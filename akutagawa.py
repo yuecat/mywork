@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from bs4 import BeautifulSoup
+from urllib.parse import urljoin
 import urllib.request as req
 
 # 対象HTML
@@ -15,5 +16,4 @@ for sakuhin in shoseki_list:
     if a != None:
         name = a.string
         href = a.attrs["href"]
-        ful_url = href.replace("..","https://www.aozora.gr.jp")
-        print(name.rstrip() + ",", ful_url)
+        print(name +","+ urljoin(url, href))
